@@ -1,0 +1,84 @@
+\usepackage{etoolbox}
+\usepackage{xifthen}
+\usepackage{mathtools}
+\usepackage{letltxmacro}
+
+\usepackage[svgnames]{xcolor}
+
+% Fonts
+\usepackage{mathpazo}
+
+% Double or one-and-a-half spacing should be used, except for indented quotations
+% or footnotes where single spacing may be used.
+\linespread{1.5}
+\usepackage{FiraSans}
+\usepackage[scale=0.85]{FiraMono}
+
+% Things that people import all the time
+\usepackage[UKenglish]{isodate}
+\usepackage[UKenglish]{babel}
+\usepackage[T1]{fontenc}
+
+% Page Margins
+%\usepackage[top=2.5cm,bottom=3cm,left=2.5cm,right=2.5cm]{geometry}
+% Page content should be centred, so that margins are equal distant from the
+% edge of page.
+\usepackage{geometry}
+\usepackage{indentfirst}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+
+\usepackage{listings}
+\usepackage{mathpartir}
+
+\usepackage{amsthm}
+\usepackage{thmtools}
+\declaretheorem[numberwithin=chapter]{theorem}
+\declaretheorem[sibling=theorem, style=definition]{definition}
+\declaretheorem[sibling=theorem, style=definition]{example}
+\declaretheorem[sibling=theorem, style=remark]{remark}
+\declaretheorem[sibling=theorem]{lemma}
+\declaretheorem[sibling=theorem]{proposition}
+\declaretheorem[sibling=theorem]{corollary}
+\declaretheorem[sibling=theorem, style=remark]{notation}
+
+\usepackage{atendofenv}
+\AtEndOfEnv{theorem}{$\lrcorner$}
+\AtEndOfEnv{definition}{$\lrcorner$}
+\AtEndOfEnv{example}{$\lrcorner$}
+\AtEndOfEnv{remark}{$\lrcorner$}
+\AtEndOfEnv{lemma}{$\lrcorner$}
+\AtEndOfEnv{proposition}{$\lrcorner$}
+\AtEndOfEnv{corollary}{$\lrcorner$}
+\AtEndOfEnv{notation}{$\lrcorner$}
+
+\usepackage[inline]{enumitem}
+
+\usepackage{xspace}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[nottoc]{tocbibind}
+\usepackage{proof}
+
+\usepackage[style=alphabetic,minalphanames=3,maxbibnames=99]{biblatex}
+% https://tex.stackexchange.com/questions/126226/how-do-i-instruct-fullcite-to-use-maxbibnames-rather-than-maxcitenames
+\preto\fullcite{\AtNextCite{\defcounter{maxnames}{99}}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning, decorations.pathreplacing, calc}
+\usepackage{smartdiagram}
+\usepackage{scalerel}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise]{cleveref}
+
+\newenvironment{abstract}{}{}
+\usepackage{abstract}
+
+\pagestyle{plain}
+
+\usepackage[mathscr]{euscript}
+\usepackage[normalem]{ulem}
+

@@ -1,0 +1,53 @@
+\documentclass[a4paper,10pt,oneside]{book}
+
+\input{packages.tex}
+\addbibresource{references.bib}
+\addbibresource{publications.bib}
+\input{macros.tex}
+
+\newcommand{\thesisUniversity}[0]{TODO: university name}
+\newcommand{\thesisDepartment}[0]{TODO: department name}
+\newcommand{\thesisTitle}[0]{TODO: title}
+\newcommand{\thesisSubmitDate}[0]{TODO: year}
+\newcommand{\thesisAuthor}[0]{TODO: author}
+
+\hypersetup{
+  pdftitle=\thesisTitle,
+  pdfauthor=\thesisAuthor,
+  pdflang=en,
+}
+
+\title{\thesisTitle}
+\author{\thesisAuthor}
+
+\begin{document}
+\frontmatter
+\input{title.tex}
+%\makeEmptyPage
+\input{declaration.tex}
+%\makeEmptyPage
+\input{abstract.tex}
+%\makeEmptyPage
+\input{acks.tex}
+%\makeEmptyPage
+
+\tableofcontents
+\listoffigures
+\listoftables
+\listoftheorems[ignoreall, show={theorem, corollary}]
+
+\mainmatter
+\input{intro.tex}
+\input{background.tex}
+%
+% Insert other chapters here
+%
+\input{conclusion.tex}
+
+\backmatter
+\small
+\printbibliography
+
+\normalsize
+% Appendix
+\end{document}

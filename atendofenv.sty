@@ -1,0 +1,64 @@
+%%
+%% This is file `atendofenv.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% atendofenv.dtx  (with options: `package')
+%% This is a generated file.
+%% 
+%% This is free and unencumbered software released into the public domain.
+%% 
+%% Anyone is free to copy, modify, publish, use, compile, sell, or
+%% distribute this software, either in source code form or as a compiled
+%% binary, for any purpose, commercial or non-commercial, and by any
+%% means.
+%% 
+%% In jurisdictions that recognize copyright laws, the author or authors
+%% of this software dedicate any and all copyright interest in the
+%% software to the public domain. We make this dedication for the benefit
+%% of the public at large and to the detriment of our heirs and
+%% successors. We intend this dedication to be an overt act of
+%% relinquishment in perpetuity of all present and future rights to this
+%% software under copyright law.
+%% 
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+%% EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+%% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+%% IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+%% OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+%% ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%% OTHER DEALINGS IN THE SOFTWARE.
+%% 
+%% For more information, please refer to <https://unlicense.org>
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{atendofenv}[2022/02/24 v0.2 Prevent an infinite loop]
+\RequirePackage{amsthm}
+\RequirePackage{letltxmacro}
+\newcommand{\AtEndOfEnv}[2]{
+  \ifcsname #1\endcsname
+    \ifcsname aeoe@old#1\endcsname\relax
+    \else
+    \expandafter\LetLtxMacro\csname aeoe@old#1\expandafter\endcsname\csname #1\endcsname
+    \fi
+  \else
+    \PackageError{atendofenv}{Environment #1 undefined}{Check the environment
+    name passed to AtEndOfEnv}
+  \fi
+  \ifcsname end#1\endcsname
+    \ifcsname aeoe@oldend#1\endcsname\relax
+    \else
+    \expandafter\LetLtxMacro\csname aeoe@oldend#1\expandafter\endcsname\csname end#1\endcsname
+    \fi
+  \else
+    \PackageError{atendofenv}{Environment #1 undefined}{Check the environment
+    name passed to AtEndOfEnv}
+  \fi
+  \renewenvironment{#1}
+  {\pushQED{\qed}\renewcommand{\qedsymbol}{#2}\expandafter\csname aeoe@old#1\endcsname}
+  {\popQED\expandafter\csname aeoe@oldend#1\endcsname}
+}
+\endinput
+%%
+%% End of file `atendofenv.sty'.
