@@ -78,7 +78,12 @@
 \newenvironment{abstract}{}{}
 \usepackage{abstract}
 
-\pagestyle{plain}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[C]{\scshape\nouppercase\leftmark}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
 
 \usepackage[mathscr]{euscript}
 \usepackage[normalem]{ulem}
