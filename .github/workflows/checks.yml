@@ -1,0 +1,12 @@
+name: Check Spelling
+on: [push]
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install hunspell
+        run: sudo apt update && sudo apt install -y hunspell hunspell-en-gb
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Spell check
+        run: make spellcheck && git diff
