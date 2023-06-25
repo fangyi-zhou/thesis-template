@@ -1,0 +1,12 @@
+./declaration.tex: NC
+./main.tex: pageanchor
+./main.tex: pageanchor
+./main.tex: ignoreall
+./main.tex: bibintoc
+./packages.tex: numberwithin
+./packages.tex: maxnames
+./packages.tex: pathreplacing
+./packages.tex: calc
+./packages.tex: 1ex
+./packages.tex: 0pt
+./title.tex: fulfillment
