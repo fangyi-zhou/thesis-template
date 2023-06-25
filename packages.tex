@@ -65,7 +65,10 @@
 \usepackage{appendix}
 \usepackage{proof}
 
-\usepackage[style=alphabetic,minalphanames=3,maxbibnames=99]{biblatex}
+% In text cite, show at most 2 author names (maxcitenames=2)
+% In citation bracket, show (at most) 3 author initials (minalphanames=3)
+% In bibliography, show at most 99 author names (maxbibnames=99)
+\usepackage[style=alphabetic,maxcitenames=2,minalphanames=3,maxbibnames=99]{biblatex}
 % https://tex.stackexchange.com/questions/126226/how-do-i-instruct-fullcite-to-use-maxbibnames-rather-than-maxcitenames
 \preto\fullcite{\AtNextCite{\defcounter{maxnames}{99}}}
 
